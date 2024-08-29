@@ -43,7 +43,7 @@ class ChatwootChat extends StatefulWidget {
   final double? onEndReachedThreshold;
 
   /// See [Message.onMessageLongPress]
-  final void Function(types.Message)? onMessageLongPress;
+  final void Function(BuildContext, types.Message)? onMessageLongPress;
 
   /// See [Message.onMessageTap]
   final void Function(types.Message)? onMessageTap;
@@ -52,7 +52,7 @@ class ChatwootChat extends StatefulWidget {
   final void Function(types.PartialText)? onSendPressed;
 
   /// See [Input.onTextChanged]
-  final void Function(String)? onTextChanged;
+  final void Function(BuildContext, String)? onTextChanged;
 
   /// Show avatars for received messages.
   final bool showUserAvatars;
@@ -333,7 +333,7 @@ class _ChatwootChatState extends State<ChatwootChat> {
     });
   }
 
-  void _handleMessageTap(types.Message message) async {
+  void _handleMessageTap(BuildContext context, types.Message message) async {
     if (message.status == types.Status.error && message is types.TextMessage) {
       _handleResendMessage(message);
     }
@@ -345,7 +345,8 @@ class _ChatwootChatState extends State<ChatwootChat> {
     types.PreviewData previewData,
   ) {
     final index = _messages.indexWhere((element) => element.id == message.id);
-    final updatedMessage = _messages[index].copyWith(previewData: previewData);
+    final textMessage = _messages[index] as types.TextMessage;
+    final updatedMessage = textMessage.copyWith(previewData: previewData);
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {

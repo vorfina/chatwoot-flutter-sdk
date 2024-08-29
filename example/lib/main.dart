@@ -4,7 +4,7 @@ import 'package:chatwoot_sdk/chatwoot_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image/image.dart' as image;
-import 'package:image_picker/image_picker.dart' as image_picker;
+import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 
 void main() {
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({super.key, required this.title});
 
   final String title;
 
@@ -78,9 +78,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<List<String>> _androidFilePicker() async {
-    final picker = image_picker.ImagePicker();
-    final photo =
-        await picker.pickImage(source: image_picker.ImageSource.gallery);
+    final picker = ImagePicker();
+    final photo = await picker.pickImage(source: ImageSource.gallery);
 
     if (photo == null) {
       return [];
@@ -88,6 +87,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final imageData = await photo.readAsBytes();
     final decodedImage = image.decodeImage(imageData);
+
+    if (decodedImage == null) {
+      return [];
+    }
+
     final scaledImage = image.copyResize(decodedImage, width: 500);
     final jpg = image.encodeJpg(scaledImage, quality: 90);
 

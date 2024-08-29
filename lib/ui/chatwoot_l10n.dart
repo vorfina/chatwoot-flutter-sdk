@@ -30,22 +30,31 @@ class ChatwootL10n extends ChatL10n {
   final String conversationResolvedMessage;
 
   /// Creates a new chatwoot l10n
-  const ChatwootL10n(
-      {this.attachmentButtonAccessibilityLabel = "",
-      this.emptyChatPlaceholder = "",
-      this.fileButtonAccessibilityLabel = "",
-      this.onlineText = "Typically replies in a few hours",
-      this.offlineText = "We're away at the moment",
-      this.typingText = "typing...",
-      this.inputPlaceholder = "Type your message",
-      this.sendButtonAccessibilityLabel = "Send Message",
-      this.conversationResolvedMessage =
-          "Your ticket has been marked as resolved"})
-      : super(
-            attachmentButtonAccessibilityLabel:
-                attachmentButtonAccessibilityLabel,
-            emptyChatPlaceholder: emptyChatPlaceholder,
-            fileButtonAccessibilityLabel: fileButtonAccessibilityLabel,
-            inputPlaceholder: inputPlaceholder,
-            sendButtonAccessibilityLabel: sendButtonAccessibilityLabel);
+  const ChatwootL10n({
+    this.attachmentButtonAccessibilityLabel = "",
+    this.emptyChatPlaceholder = "",
+    this.fileButtonAccessibilityLabel = "",
+    this.onlineText = "Typically replies in a few hours",
+    this.offlineText = "We're away at the moment",
+    this.typingText = "typing...",
+    this.inputPlaceholder = "Type your message",
+    this.sendButtonAccessibilityLabel = "Send Message",
+    this.conversationResolvedMessage =
+        "Your ticket has been marked as resolved",
+    String and = 'and',
+    String isTyping = 'is typing',
+    String others = 'others',
+    String unreadMessagesLabel = 'Unread messages',
+  }) : super(
+          attachmentButtonAccessibilityLabel:
+              attachmentButtonAccessibilityLabel,
+          emptyChatPlaceholder: emptyChatPlaceholder,
+          fileButtonAccessibilityLabel: fileButtonAccessibilityLabel,
+          inputPlaceholder: inputPlaceholder,
+          sendButtonAccessibilityLabel: sendButtonAccessibilityLabel,
+          and: and,
+          isTyping: isTyping,
+          others: others,
+          unreadMessagesLabel: unreadMessagesLabel,
+        );
 }
