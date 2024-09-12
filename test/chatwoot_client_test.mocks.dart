@@ -3,19 +3,21 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i6;
+import 'dart:async' as _i7;
 
 import 'package:chatwoot_sdk/chatwoot_callbacks.dart' as _i4;
-import 'package:chatwoot_sdk/data/chatwoot_repository.dart' as _i5;
-import 'package:chatwoot_sdk/data/local/entity/chatwoot_user.dart' as _i7;
+import 'package:chatwoot_sdk/data/chatwoot_repository.dart' as _i6;
+import 'package:chatwoot_sdk/data/local/entity/chatwoot_user.dart' as _i8;
 import 'package:chatwoot_sdk/data/local/local_storage.dart' as _i3;
 import 'package:chatwoot_sdk/data/remote/requests/chatwoot_action_data.dart'
-    as _i9;
+    as _i10;
 import 'package:chatwoot_sdk/data/remote/requests/chatwoot_new_message_request.dart'
-    as _i8;
+    as _i9;
 import 'package:chatwoot_sdk/data/remote/service/chatwoot_client_service.dart'
     as _i2;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:mockito/src/dummies.dart' as _i11;
+import 'package:riverpod/src/internals.dart' as _i5;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -62,11 +64,44 @@ class _FakeChatwootCallbacks_2 extends _i1.SmartFake
         );
 }
 
+class _FakeProviderScheduler_3 extends _i1.SmartFake
+    implements _i5.ProviderScheduler {
+  _FakeProviderScheduler_3(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeProviderSubscription_4<State1> extends _i1.SmartFake
+    implements _i5.ProviderSubscription<State1> {
+  _FakeProviderSubscription_4(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeProviderElementBase_5<StateT> extends _i1.SmartFake
+    implements _i5.ProviderElementBase<StateT> {
+  _FakeProviderElementBase_5(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [ChatwootRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockChatwootRepository extends _i1.Mock
-    implements _i5.ChatwootRepository {
+    implements _i6.ChatwootRepository {
   MockChatwootRepository() {
     _i1.throwOnMissingStub(this);
   }
@@ -108,14 +143,14 @@ class MockChatwootRepository extends _i1.Mock
       );
 
   @override
-  _i6.Future<void> initialize(_i7.ChatwootUser? user) => (super.noSuchMethod(
+  _i7.Future<void> initialize(_i8.ChatwootUser? user) => (super.noSuchMethod(
         Invocation.method(
           #initialize,
           [user],
         ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+        returnValue: _i7.Future<void>.value(),
+        returnValueForMissingStub: _i7.Future<void>.value(),
+      ) as _i7.Future<void>);
 
   @override
   void getPersistedMessages() => super.noSuchMethod(
@@ -127,14 +162,14 @@ class MockChatwootRepository extends _i1.Mock
       );
 
   @override
-  _i6.Future<void> getMessages() => (super.noSuchMethod(
+  _i7.Future<void> getMessages() => (super.noSuchMethod(
         Invocation.method(
           #getMessages,
           [],
         ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+        returnValue: _i7.Future<void>.value(),
+        returnValueForMissingStub: _i7.Future<void>.value(),
+      ) as _i7.Future<void>);
 
   @override
   void listenForEvents() => super.noSuchMethod(
@@ -146,18 +181,18 @@ class MockChatwootRepository extends _i1.Mock
       );
 
   @override
-  _i6.Future<void> sendMessage(_i8.ChatwootNewMessageRequest? request) =>
+  _i7.Future<void> sendMessage(_i9.ChatwootNewMessageRequest? request) =>
       (super.noSuchMethod(
         Invocation.method(
           #sendMessage,
           [request],
         ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+        returnValue: _i7.Future<void>.value(),
+        returnValueForMissingStub: _i7.Future<void>.value(),
+      ) as _i7.Future<void>);
 
   @override
-  void sendAction(_i9.ChatwootActionType? action) => super.noSuchMethod(
+  void sendAction(_i10.ChatwootActionType? action) => super.noSuchMethod(
         Invocation.method(
           #sendAction,
           [action],
@@ -166,14 +201,14 @@ class MockChatwootRepository extends _i1.Mock
       );
 
   @override
-  _i6.Future<void> clear() => (super.noSuchMethod(
+  _i7.Future<void> clear() => (super.noSuchMethod(
         Invocation.method(
           #clear,
           [],
         ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+        returnValue: _i7.Future<void>.value(),
+        returnValueForMissingStub: _i7.Future<void>.value(),
+      ) as _i7.Future<void>);
 
   @override
   void dispose() => super.noSuchMethod(
@@ -183,4 +218,240 @@ class MockChatwootRepository extends _i1.Mock
         ),
         returnValueForMissingStub: null,
       );
+}
+
+/// A class which mocks [ProviderContainer].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockProviderContainer extends _i1.Mock implements _i5.ProviderContainer {
+  MockProviderContainer() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  set vsyncOverride(void Function(void Function())? _vsyncOverride) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #vsyncOverride,
+          _vsyncOverride,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i5.ProviderScheduler get scheduler => (super.noSuchMethod(
+        Invocation.getter(#scheduler),
+        returnValue: _FakeProviderScheduler_3(
+          this,
+          Invocation.getter(#scheduler),
+        ),
+      ) as _i5.ProviderScheduler);
+
+  @override
+  int get depth => (super.noSuchMethod(
+        Invocation.getter(#depth),
+        returnValue: 0,
+      ) as int);
+
+  @override
+  List<_i5.ProviderObserver> get observers => (super.noSuchMethod(
+        Invocation.getter(#observers),
+        returnValue: <_i5.ProviderObserver>[],
+      ) as List<_i5.ProviderObserver>);
+
+  @override
+  set debugCanModifyProviders(void Function()? _debugCanModifyProviders) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #debugCanModifyProviders,
+          _debugCanModifyProviders,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void Function(void Function()) get vsync => (super.noSuchMethod(
+        Invocation.getter(#vsync),
+        returnValue: (void Function() task) {},
+      ) as void Function(void Function()));
+
+  @override
+  List<_i5.ProviderContainer> get debugChildren => (super.noSuchMethod(
+        Invocation.getter(#debugChildren),
+        returnValue: <_i5.ProviderContainer>[],
+      ) as List<_i5.ProviderContainer>);
+
+  @override
+  bool hasStateReaderFor(_i5.ProviderListenable<Object?>? provider) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #hasStateReaderFor,
+          [provider],
+        ),
+        returnValue: false,
+      ) as bool);
+
+  @override
+  _i7.Future<void> pump() => (super.noSuchMethod(
+        Invocation.method(
+          #pump,
+          [],
+        ),
+        returnValue: _i7.Future<void>.value(),
+        returnValueForMissingStub: _i7.Future<void>.value(),
+      ) as _i7.Future<void>);
+
+  @override
+  Result read<Result>(_i5.ProviderListenable<Result>? provider) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #read,
+          [provider],
+        ),
+        returnValue: _i11.dummyValue<Result>(
+          this,
+          Invocation.method(
+            #read,
+            [provider],
+          ),
+        ),
+      ) as Result);
+
+  @override
+  bool exists(_i5.ProviderBase<Object?>? provider) => (super.noSuchMethod(
+        Invocation.method(
+          #exists,
+          [provider],
+        ),
+        returnValue: false,
+      ) as bool);
+
+  @override
+  void debugReassemble() => super.noSuchMethod(
+        Invocation.method(
+          #debugReassemble,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i5.ProviderSubscription<State> listen<State>(
+    _i5.ProviderListenable<State>? provider,
+    void Function(
+      State?,
+      State,
+    )? listener, {
+    bool? fireImmediately = false,
+    void Function(
+      Object,
+      StackTrace,
+    )? onError,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #listen,
+          [
+            provider,
+            listener,
+          ],
+          {
+            #fireImmediately: fireImmediately,
+            #onError: onError,
+          },
+        ),
+        returnValue: _FakeProviderSubscription_4<State>(
+          this,
+          Invocation.method(
+            #listen,
+            [
+              provider,
+              listener,
+            ],
+            {
+              #fireImmediately: fireImmediately,
+              #onError: onError,
+            },
+          ),
+        ),
+      ) as _i5.ProviderSubscription<State>);
+
+  @override
+  void invalidate(_i5.ProviderOrFamily? provider) => super.noSuchMethod(
+        Invocation.method(
+          #invalidate,
+          [provider],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  State refresh<State>(_i5.Refreshable<State>? provider) => (super.noSuchMethod(
+        Invocation.method(
+          #refresh,
+          [provider],
+        ),
+        returnValue: _i11.dummyValue<State>(
+          this,
+          Invocation.method(
+            #refresh,
+            [provider],
+          ),
+        ),
+      ) as State);
+
+  @override
+  void updateOverrides(List<_i5.Override>? overrides) => super.noSuchMethod(
+        Invocation.method(
+          #updateOverrides,
+          [overrides],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i5.ProviderElementBase<State> readProviderElement<State>(
+          _i5.ProviderBase<State>? provider) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #readProviderElement,
+          [provider],
+        ),
+        returnValue: _FakeProviderElementBase_5<State>(
+          this,
+          Invocation.method(
+            #readProviderElement,
+            [provider],
+          ),
+        ),
+      ) as _i5.ProviderElementBase<State>);
+
+  @override
+  void dispose() => super.noSuchMethod(
+        Invocation.method(
+          #dispose,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  Iterable<_i5.ProviderElementBase<dynamic>> getAllProviderElements() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getAllProviderElements,
+          [],
+        ),
+        returnValue: <_i5.ProviderElementBase<dynamic>>[],
+      ) as Iterable<_i5.ProviderElementBase<dynamic>>);
+
+  @override
+  Iterable<_i5.ProviderElementBase<dynamic>> getAllProviderElementsInOrder() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getAllProviderElementsInOrder,
+          [],
+        ),
+        returnValue: <_i5.ProviderElementBase<dynamic>>[],
+      ) as Iterable<_i5.ProviderElementBase<dynamic>>);
 }

@@ -13,13 +13,13 @@ import 'chatwoot_client_test.mocks.dart';
 import 'data/chatwoot_repository_test.mocks.dart';
 import 'utils/test_resources_util.dart';
 
-@GenerateMocks([ChatwootRepository])
+@GenerateMocks([ChatwootRepository, ProviderContainer])
 void main() {
   group("Chatwoot Client Test", () {
     late ChatwootClient client;
     final testInboxIdentifier = "testIdentifier";
     final testBaseUrl = "https://testbaseurl.com";
-    late ProviderContainer mockProviderContainer;
+    late MockProviderContainer mockProviderContainer;
     final mockLocalStorage = MockLocalStorage();
     final mockRepository = MockChatwootRepository();
 
@@ -38,12 +38,10 @@ void main() {
     setUp(() async {
       when(mockRepository.initialize(testUser))
           .thenAnswer((realInvocation) => Future.microtask(() {}));
-      mockProviderContainer = ProviderContainer();
+      mockProviderContainer = MockProviderContainer();
       mockProviderContainer.updateOverrides([
-        localStorageProvider
-            .overrideWithProvider((ref, param) => mockLocalStorage),
-        chatwootRepositoryProvider
-            .overrideWithProvider((ref, param) => mockRepository)
+        localStorageProvider.overrideWith((ref, params) => mockLocalStorage),
+        chatwootRepositoryProvider.overrideWith((ref, params) => mockRepository)
       ]);
       ChatwootClient.providerContainerMap.update(
           testClientInstanceKey, (_) => mockProviderContainer,

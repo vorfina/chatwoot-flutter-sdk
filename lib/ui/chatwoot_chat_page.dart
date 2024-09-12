@@ -131,7 +131,13 @@ class ChatwootChat extends StatefulWidget {
       this.onTextChanged,
       this.showUserAvatars = true,
       this.showUserNames = true,
-      this.theme = const ChatwootChatTheme(),
+      this.theme = const ChatwootChatTheme(
+        inputPadding: EdgeInsets.all(0),
+        inputTextDecoration: InputDecoration(
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+        ),
+      ),
       this.l10n = const ChatwootL10n(),
       this.timeFormat,
       this.dateFormat,
@@ -400,56 +406,33 @@ class _ChatwootChatState extends State<ChatwootChat> {
 
   @override
   Widget build(BuildContext context) {
-    final horizontalPadding = widget.isPresentedInDialog ? 8.0 : 16.0;
     return Scaffold(
       appBar: widget.appBar,
       backgroundColor: widget.theme.backgroundColor,
       body: Column(
         children: [
           Flexible(
-            child: Padding(
-              padding: EdgeInsets.only(
-                  left: horizontalPadding, right: horizontalPadding),
-              child: Chat(
-                messages: _messages,
-                onMessageTap: _handleMessageTap,
-                onPreviewDataFetched: _handlePreviewDataFetched,
-                onSendPressed: _handleSendPressed,
-                user: _user,
-                onEndReached: widget.onEndReached,
-                onEndReachedThreshold: widget.onEndReachedThreshold,
-                onMessageLongPress: widget.onMessageLongPress,
-                onTextChanged: widget.onTextChanged,
-                showUserAvatars: widget.showUserAvatars,
-                showUserNames: widget.showUserNames,
-                timeFormat: widget.timeFormat ?? DateFormat.Hm(),
-                dateFormat: widget.timeFormat ?? DateFormat("EEEE MMMM d"),
-                theme: widget.theme,
-                l10n: widget.l10n,
-              ),
+            child: Chat(
+              messages: _messages,
+              onMessageTap: _handleMessageTap,
+              onPreviewDataFetched: _handlePreviewDataFetched,
+              onSendPressed: _handleSendPressed,
+              user: _user,
+              onEndReached: widget.onEndReached,
+              onEndReachedThreshold: widget.onEndReachedThreshold,
+              onMessageLongPress: widget.onMessageLongPress,
+              onTextChanged: widget.onTextChanged,
+              showUserAvatars: widget.showUserAvatars,
+              showUserNames: widget.showUserNames,
+              timeFormat: widget.timeFormat ?? DateFormat.Hm(),
+              dateFormat: widget.timeFormat ?? DateFormat("EEEE MMMM d"),
+              theme: widget.theme,
+              l10n: widget.l10n,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/logo_grey.png",
-                  package: 'chatwoot_sdk',
-                  width: 15,
-                  height: 15,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Text(
-                    "Powered by Chatwoot",
-                    style: TextStyle(color: Colors.black45, fontSize: 12),
-                  ),
-                )
-              ],
-            ),
-          )
+          const SizedBox(
+            height: 8,
+          ),
         ],
       ),
     );

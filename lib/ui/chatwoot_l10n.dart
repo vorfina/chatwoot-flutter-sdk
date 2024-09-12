@@ -37,7 +37,7 @@ class ChatwootL10n extends ChatL10n {
     this.onlineText = "Typically replies in a few hours",
     this.offlineText = "We're away at the moment",
     this.typingText = "typing...",
-    this.inputPlaceholder = "Type your message",
+    this.inputPlaceholder = "Nachricht schreiben...",
     this.sendButtonAccessibilityLabel = "Send Message",
     this.conversationResolvedMessage =
         "Your ticket has been marked as resolved",
